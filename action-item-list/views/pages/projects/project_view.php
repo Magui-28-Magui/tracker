@@ -72,7 +72,7 @@ if($_SESSION['quatroapp_user_level'] == 0)
 
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.php?page=project_list">Back To Project List</a></li>
+    <li class="breadcrumb-item"><a href="<?php if($row['lean'] == 0){echo "index.php?page=project_list";}elseif($row['lean'] == 1){echo "index.php?page=project_list_lean";} ?>">Back To Project List</a></li>
     <li class="breadcrumb-item active" aria-current="page"><?php echo $row['project_name'] ?></li>
   </ol>
 </nav>

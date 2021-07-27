@@ -16,13 +16,16 @@ if (isset($project)) {
   }
   if ($project->messages) {
       foreach ($project->messages as $message) {
+        
         $p =   implode(',',$project->project);
+        /*
         if($p == 1){
             $p = "project_list_lean";
         }
         else{
             $p = "project_list";
-        }  
+        }
+        */
         echo "
         <script type='text/javascript'>
           document.addEventListener('DOMContentLoaded', function(event) {
@@ -32,7 +35,7 @@ if (isset($project)) {
                 text: '$message',
                 type: 'success'
             }).then(function() {
-                window.location = 'index.php?page=$p';
+                window.location = 'index.php?page=project_view&project_id=$p';
             });
           });
        </script>

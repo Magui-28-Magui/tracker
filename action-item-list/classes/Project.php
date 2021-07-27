@@ -19,6 +19,7 @@ class Project
      */
     public $project = array();
 
+
    
     public function __construct()
     {
@@ -172,9 +173,10 @@ class Project
                             }
                         }
 
-                        $this->project[]     = $project_lean;
+                        //$this->project[]     = $project_lean;
+                        $this->project[]     = $last_project;
 
-                        $this->messages[] = "Project saved successfuly.";
+                        $this->messages[] = "Project saved successfuly, you will be redirected.";
                     } 
                     else 
                     {
