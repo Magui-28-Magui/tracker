@@ -96,8 +96,8 @@ $stmt->close();
                         <label>Lean Tracker Project</label>
                         <select  name="project_lean" id="" class="form-control" required>
                             <option value="">Select</option>
-                            <option value="0">No</option>
-                            <option value="1">Yes</option>
+                            <option <?php if($row_data['lean'] == 0){echo "selected";}else{echo "";} ?> value="0">No</option>
+                            <option <?php if($row_data['lean'] == 1){echo "selected";}else{echo "";} ?> value="1">Yes</option>
                         </select>
                     </div>
                 </div>
