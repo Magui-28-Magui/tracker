@@ -50,7 +50,13 @@
                     ?>
                         <tr>
                             <td><?php echo $row['action_name'];  ?></td>
-                            <td><b class="text-success">Projects</b></td>
+                            
+                            <td>
+                                <b class="text-success">
+                                    Projects: <?php echo $row['project_name']; ?>
+                                </b>
+                            </td>
+
                             <td>
                                 <?php   
                                 $query2 = "SELECT * FROM action_responsible 

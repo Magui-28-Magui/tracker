@@ -29,10 +29,22 @@ if($_SESSION['quatroapp_user_level'] == 0)
     $row = mysqli_fetch_array($run_check);
 }
 
+//get area
+if(isset($_GET['area_id']) && $_GET['area_id'] != "")
+{
+    $query_area = "SELECT * FROM tier_area WHERE area_id = {$_GET['area_id']}";
+    $run_area = mysqli_query($connection, $query_area);
+    $row_area = mysqli_fetch_array($run_area);
+    $tier_area_name = ", " . $row_area['area_name'];
+}
+else
+{
+    $tier_area_name = "";
+}
 
 
 ?>
-<h1 class="h3 mb-4 text-gray-800">Tier: <b><?php echo $row_data['tier_name'] ?></b></h1>
+<h1 class="h3 mb-4 text-gray-800">Tier: <b><?php echo $row_data['tier_name'] ?><?php echo $tier_area_name; ?></b></h1>
 
 <div style="margin-bottom:15px;">
     <a  href="index.php?page=tier_action_add&tier_id=<?php echo $_GET['tier_id']; ?><?php if(isset($_GET['area_id']) && $_GET['area_id'] != ""){echo "&area_id={$_GET['area_id']}";}else{echo "";} ?>" id="add-newuser" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Add Action</a>
@@ -89,7 +101,7 @@ if($_SESSION['quatroapp_user_level'] == 0)
                         LEFT JOIN tier_action_responsible ON tier_action_responsible.a_action_id = tier_actions.action_id 
                         WHERE  
                         tier_action_responsible.a_responsible_user = {$_SESSION['quatroapp_user_id']} AND tiers.tier_id = {$_GET['tier_id']}  
-                        $string 
+                        $string  AND tier_actions.action_complete = 0
                         GROUP BY tier_actions.action_id 
                         ORDER BY tier_actions.action_promise_date";
                     }
@@ -102,7 +114,7 @@ if($_SESSION['quatroapp_user_level'] == 0)
                         LEFT JOIN tier_action_responsible ON tier_action_responsible.a_action_id = tier_actions.action_id 
                         WHERE  
                         tiers.tier_id = {$_GET['tier_id']}  
-                        $string 
+                        $string  AND tier_actions.action_complete = 0
                         GROUP BY tier_actions.action_id 
                         ORDER BY tier_actions.action_promise_date";
                     }
