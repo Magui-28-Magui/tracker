@@ -29,6 +29,7 @@ if (isset($actionitem)) {
             
             swal({
                 title: 'Success!',
+                icon: 'success',
                 text: '$message',
                 type: 'success'
             }).then(function() {
@@ -267,9 +268,9 @@ if(isset($_GET['meeting_id']))
                     
                     
                     <div style="margin-top: 50px;" class="form-group right">
-                        <button style="float: right;" id="edit_profile1" name="add_list" type="submit" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm ">
+                        <a style="float: right;" href="index.php?page=ail_list"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm ">
                             <i class="far fa-save fa-lg text-white-50"></i>&nbsp;&nbsp;Save And Finish
-                        </button>
+                        </a>
                     </div>
                 </div><!--col-8-end--> 
             </div>
@@ -291,15 +292,14 @@ if(isset($_GET['meeting_id']))
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+     <form method="POST">  
       <div class="modal-header">
         <h5 class="modal-title" id="action-title"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        
-        <form method="POST">
+      <div class="modal-body">        
             <input id="action_id" type="hidden" name="action_id" value="">
            
             <div class="form-group col-lg-12">
@@ -348,15 +348,14 @@ if(isset($_GET['meeting_id']))
 
 
             <div class="form-group">
-                <button type="submit" name="edit_action" class="btn btn-primary">Save changes</button>
+                
             </div>
-        </form>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" name="edit_action" class="btn btn-primary">Save changes</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -385,6 +384,7 @@ if(isset($_GET['meeting_id']))
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
+    <form method="POST">
       <div class="bg-danger modal-header">
         <h5 class="text-white modal-title" id="action-title-delete"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -393,21 +393,17 @@ if(isset($_GET['meeting_id']))
       </div>
       <div class="modal-body">
         
-        <form method="POST">
-            <input id="action-id-delete" type="hidden" name="action_id" value="">
+       
+        <input id="action-id-delete" type="hidden" name="action_id" value="">
            
-            <b>You are about to delete this action press on delete action to confirm.</b>
-            
-            <div class="form-group">
-                <button type="submit" name="delete_action" class="btn btn-danger">Delete Action</button>
-            </div>
-        </form>
-
+        <b>You are about to delete this action press on delete action to confirm.</b>
+       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" name="delete_action" class="btn btn-danger">Delete Action</button>
       </div>
+    </form>
     </div>
   </div>
 </div>

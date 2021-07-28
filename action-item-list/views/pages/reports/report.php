@@ -22,7 +22,16 @@ $stmt->execute();
 $result = $stmt->get_result();
 if($result->num_rows === 0) 
 {
-    exit('No rows');
+    //echo "Nothing to report, no actions were found. <a href='{$_SERVER['HTTP_REFERER']}'>Go Back.</a>";
+    if(isset($_SERVER['HTTP_REFERER']))
+    {
+        exit("Nothing to report, no actions were found. <a href='{$_SERVER['HTTP_REFERER']}'>Go Back.</a>");
+    }
+    else
+    {
+        exit("Nothing to report, no actions were found. <a href='index.php'>Go Back.</a>");
+    }
+    
 }   
 
 $row_data = $result->fetch_array();

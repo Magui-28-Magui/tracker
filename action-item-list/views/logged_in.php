@@ -159,6 +159,7 @@ switch($page)
         include("pages/reports/report_historic_list.php");
     break;
 
+    
     case "report":
         include("pages/reports/report.php");
     break;

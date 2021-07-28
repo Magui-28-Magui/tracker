@@ -42,7 +42,7 @@ class ActionItem
         }
 
         else if (isset($_POST["delete_action"])) {
-            $this->deleteSite();
+            $this->deleteAction();
         }
 
         else if (isset($_POST["submit_update"])) {
@@ -564,7 +564,7 @@ class ActionItem
                                     if($responsible != $owner)
                                     {
                                         //echo $responsible;
-                                       echo $sql3 = "INSERT INTO ail_users (ail_meeting_id, ail_action_id, ail_user_id, ail_user_register) 
+                                        $sql3 = "INSERT INTO ail_users (ail_meeting_id, ail_action_id, ail_user_id, ail_user_register) 
                                         VALUES ('" . $meeting_id . "', '" . $action_id . "', '".$responsible."', '" . $today . "')";
                                         $query_new_user_insert = $this->db_connection->query($sql3);
                                     }
@@ -774,9 +774,9 @@ class ActionItem
 
 
 
-    private function deleteSite()
+    private function deleteAction()
     {
-        $site_id = $_GET['site_id'];
+        $action_id = $_POST['action_id'];
 
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
@@ -787,20 +787,19 @@ class ActionItem
 
         if (!$this->db_connection->connect_errno) 
         {
-            $site_name = $this->db_connection->real_escape_string(strip_tags($_POST['site_name'], ENT_QUOTES));
             
             
-            $sql = "UPDATE andon_site SET site_active = 0 WHERE site_id = $site_id;";
+            $sql = "UPDATE ail_action SET action_active = 0 WHERE ail_action_id = $action_id;";
             $query_new_user_insert = $this->db_connection->query($sql);
 
             if ($query_new_user_insert) 
             {
-                header("Location: index.php?page=andon_sites");
-                //$this->messages[] = "Site update successful.";
+                //header("Location: index.php?page=andon_sites");
+                $this->messages[] = "Action deleted successfully.";
             } 
             else 
             {
-                $this->errors[] = "Sorry, update failed. Please go back and try again.";
+                $this->errors[] = "Sorry, could not delete. Please go back and try again.";
             }
             
         } 
