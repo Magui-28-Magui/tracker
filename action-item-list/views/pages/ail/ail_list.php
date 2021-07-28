@@ -102,10 +102,13 @@
                                 <a href='index.php?page=ail_view&meeting_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='View Meeting Details' style='font-size: 20px; color:#b5b5b5' class='far fa-eye options'></i></a>
 
                                 <?php 
-                                if($_SESSION['quatroapp_user_level'] >= 1 || $row['ail_owner']== $_SESSION['quatroapp_user_id'] ):
+                                if($_SESSION['quatroapp_user_level'] >= 1 || $row['meeting_owner']== $_SESSION['quatroapp_user_id'] ):
                                 ?>
+                                
                                 <a href='index.php?page=ail_add&meeting_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit Meeting' style='font-size: 20px; color:#b5b5b5' class='far fa-edit options'></i></a>
+
                                 <a href='index.php?page=ail_delete&project_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Delete Meeting' style='font-size: 20px; color:#b5b5b5' class='far fa-trash-alt options'></i></a>
+                                
                                 <?php 
                                 endif;
                                 ?>

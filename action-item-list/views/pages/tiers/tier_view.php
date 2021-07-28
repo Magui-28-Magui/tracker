@@ -9,7 +9,7 @@
 //check if user can see this
 if($_SESSION['quatroapp_user_level'] == 0)
 {
-    $action_numer = 0;
+   $action_numer = 0;
 
     $query = "SELECT * FROM tier_actions 
     LEFT JOIN tiers ON tier_actions.action_tier_id = tiers.tier_id 
@@ -26,7 +26,8 @@ if($_SESSION['quatroapp_user_level'] == 0)
     {
         die("<br>You dont have permission to access this tier, or there are no actions for this tier add actions first <a href='index.php'>Go Back</a>");
     }
-    $row = mysqli_fetch_array($run_check);
+     $row = mysqli_fetch_array($run_check);
+
 }
 
 //get area
@@ -48,7 +49,7 @@ else
 
 <div style="margin-bottom:15px;">
     <a  href="index.php?page=tier_action_add&tier_id=<?php echo $_GET['tier_id']; ?><?php if(isset($_GET['area_id']) && $_GET['area_id'] != ""){echo "&area_id={$_GET['area_id']}";}else{echo "";} ?>" id="add-newuser" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Add Action</a>
-    <a  href="index.php?page=report&tier_id=<?php echo $_GET['tier_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;&nbsp;Generate Report</a>
+    <a  href="index.php?page=report_tier&tier_id=<?php echo $_GET['tier_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;&nbsp;Generate Report</a>
 </div>
 
 <nav aria-label="breadcrumb">
