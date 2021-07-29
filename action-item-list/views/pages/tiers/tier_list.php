@@ -11,7 +11,7 @@
     </div>
         <div class="card-body">
             <div style="margin-top:-20px;" class="table-responsive">
-            <table  style="font-size: 14px; vertical-align:middle; " class="table  order-column " id="dataTableExcel" width="100%" cellspacing="0">
+            <table  style="font-size: 14px; vertical-align:middle; " class="table  order-column " id="dataTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th style="text-align: center;">Tier</th>

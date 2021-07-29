@@ -71,15 +71,15 @@ else
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th style="width: 100px;">Issue</th>
-                    <th>Action</th>
-                    <th>Department</th>
-                    <th>Team</th>
-                    <th style="width: 100px;">Promise Date</th>
-                    <th>Status</th>
-                    <th style="width: 100px;">Complete</th>
-                    <th>Actions</th>
-                    <th style="width: 100px;">Updates</th>
+                    <th style="width: 20%;">Issue</th>
+                    <th style="width: 20%;">Action</th>
+                    <th style="width: 5%;">Department</th>
+                    <th style="width: 10%;">Team</th>
+                    <th style="width: 10%;">Promise Date</th>
+                    <th style="width: 5%;">Status</th>
+                    <th style="width: 5%;">Complete</th>
+                    <th style="width: 10%;">Actions</th>
+                    <th style="width: 10%;">Updates</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -192,11 +192,12 @@ else
                             </td>
                             <td>
                                 <a href='index.php?page=tier_view_update&action_id=<?php echo $row['action_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='View action details' style='font-size: 20px; color:#b5b5b5' class='fas fa-eye options'></i></a>
+                                &nbsp;&nbsp;
                                 <a href='index.php?page=tier_action_edit&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?><?php echo $area_id; ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit action' style='font-size: 20px; color:#b5b5b5' class='fa fa-edit options'></i></a>
                             </td>
                             <td>
                                 <a href='index.php?page=tier_action_add_file&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Add a file docx, xlsx, csv, pdf or image' style='font-size: 20px; color:#b5b5b5' class='fas fa-file-upload options'></i></a>
-                                &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp
                                 <a href='index.php?page=tier_action_progress&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Update progress' style='font-size: 20px; color:#b5b5b5' class='fas fa-tasks options'></i></a>
                             </td>
                         </tr>
