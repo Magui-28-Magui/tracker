@@ -51,15 +51,16 @@ class Trigger
             if (!$this->db_connection->connect_errno) 
             {
                 
-                $tier_id       = $this->db_connection->real_escape_string(strip_tags($_POST['tier_id'], ENT_QUOTES));
-                $tier_area     = $this->db_connection->real_escape_string(strip_tags($_POST['tier_area_id'], ENT_QUOTES));
-                $issue         = $this->db_connection->real_escape_string(strip_tags($_POST['issue'], ENT_QUOTES));
+                $tier_id            = $this->db_connection->real_escape_string(strip_tags($_POST['tier_id'], ENT_QUOTES));
+                $tier_area          = $this->db_connection->real_escape_string(strip_tags($_POST['tier_area_id'], ENT_QUOTES));
+                $issue              = $this->db_connection->real_escape_string(strip_tags($_POST['issue'], ENT_QUOTES));
+                $key_indicator_id   = $this->db_connection->real_escape_string(strip_tags($_POST['key_indicator_id'], ENT_QUOTES));
              
 
 
               
-                $sql = "INSERT INTO tier_triggers (trigger_issue, trigger_tier_id, trigger_area_id)
-                        VALUES ('" . $issue . "', '" . $tier_id . "', '" . $tier_area . "');";
+                $sql = "INSERT INTO tier_triggers (trigger_issue, trigger_tier_id, trigger_area_id, key_indicator_id)
+                        VALUES ('" . $issue . "', '" . $tier_id . "', '" . $tier_area . "', '" . $key_indicator_id . "');";
                 $query_new_user_insert = $this->db_connection->query($sql);
 
                 if ($query_new_user_insert) 

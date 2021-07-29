@@ -21,7 +21,10 @@ else
 
 
 //datatables con botones
-if($page == "main_table" || $page == "ail_report" || $page == "project_list" || $page == "project_list_lean" || $page == "project_view" || $page == "view_update" || $page == "report")
+if(
+    $page == "main_table" || $page == "ail_report" || $page == "project_list" || $page == "project_list_lean" || 
+    $page == "project_view" || $page == "view_update" || $page == "report" || $page == "tier_pending"
+)
 {
     $datatablesop = 2;
 }

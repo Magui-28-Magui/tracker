@@ -78,13 +78,10 @@ if (isset($trigger)) {
                                             </div>
 
 
-
-
-
                                             <div class="form-group">
-                                                <!-- Country dropdown -->
+                                                <!-- Tier dropdown -->
                                                 <label for="country">Tier And Plant</label>
-                                                <select name="tier_id" class="form-control" id="country">
+                                                <select name="tier_id" class="form-control" id="country" required>
                                                 <option value="">Select Tier and Plant</option>
                                                 <?php 
                                                     $query = "SELECT DISTINCT tiers.tier_id, tier_name, tier_plant, tier_active FROM tiers LEFT JOIN tier_area ON tiers.tier_id = tier_area.tier_id WHERE tier_name LIKE '%2.0%' OR tier_name LIKE '%3.0%' ";
@@ -97,23 +94,30 @@ if (isset($trigger)) {
                                             </div>
                                                 
                                             <div class="form-group">    
-                                                <!-- State dropdown -->
+                                                <!-- Area dropdown -->
                                                 <label for="country">Tier Area</label>
-                                                <select name="tier_area_id" class="form-control" id="state">
+                                                <select name="tier_area_id" class="form-control" id="state" required>
                                                 <option value="">Select Tier Area</option>
                                                 </select>
                                             </div>
 
 
-                                            <!--
-                                            <div class="form-group">    
-                                                
-                                                <label for="country">City</label>
-                                                <select class="form-control" id="city">
-                                                <option value="">Select City</option>
+                                            <div class="form-group">
+                                                <!-- Metric -->
+                                                <label for="key_indicator_id">Impacted Indicator</label>
+                                                <select name="key_indicator_id" class="form-control" id="key_indicator_id" required>
+                                                <option value="">Select Key Indicator</option>
+                                                <?php 
+                                                    $query = "SELECT * FROM key_indicator";
+                                                    $result = mysqli_query($connection, $query);
+                                                    while($row = mysqli_fetch_array($result)):
+                                                    ?>
+                                                        <option value="<?php echo $row['key_id']; ?>"><?php echo $row['key_name']; ?></option>
+                                                <?php endwhile; ?>
                                                 </select>
                                             </div>
-                                            -->
+
+                                           
 
 
                                             
