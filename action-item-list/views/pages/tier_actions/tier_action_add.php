@@ -89,7 +89,7 @@ $stmt->close();
 
                     
                     <div class="form-group">
-                        <label>Action Name</label>
+                        <label>Issue</label>
                         <input type="text" name="action_name"  class="form-control" value="<?php if(isset($_POST['action_name'])){echo $_POST['action_name'];} ?>" required>
                     </div>
 
@@ -108,7 +108,7 @@ $stmt->close();
                     </div>
 
                     <div class="form-group">
-                        <label>Action Description</label>
+                        <label>Action</label>
                         <textarea name="action_description"  class="form-control" rows="7" required><?php if(isset($_POST['action_description'])){echo $_POST['action_description'];} ?></textarea>
                     </div>
 

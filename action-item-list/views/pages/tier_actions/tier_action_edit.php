@@ -90,7 +90,7 @@ $stmt->close();
                 <div class="col-lg-8 offset-lg-2">
 
                     <div class="form-group">
-                        <label>Action Name</label>
+                        <label>Issue</label>
                         <input type="text" name="action_name" id="" class="form-control" value="<?php echo $row_data['action_name']; ?>" required>
                     </div>
 
@@ -109,7 +109,7 @@ $stmt->close();
                     </div>
 
                     <div class="form-group">
-                        <label>Action Description</label>
+                        <label>Action</label>
                         <textarea name="action_description" id="" class="form-control" rows="7" required><?php echo $row_data['action_description'] ?></textarea>
                     </div>
 
