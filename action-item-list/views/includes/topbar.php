@@ -86,7 +86,7 @@
       <!-- Nav Item - Messages -->
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
+          <i class="fas fa-clipboard-check fa-fw"></i>
           <!-- Counter - Messages -->
           <span style="font-size: 16px;" id="alert-num2" class="badge badge-danger badge-counter"></span>
         </a>
