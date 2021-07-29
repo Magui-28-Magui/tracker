@@ -19,7 +19,7 @@ class Action
      */
     public $project = array();
      /**
-     * @var array $project Collection of projects
+     * @var array $tier Collection of projects
      */
     public $tierarea = array();
 
@@ -283,7 +283,7 @@ class Action
                     $area_id         = 0;
                 }
 
-                $this->project[]     = $_GET['tier_id'];     
+                //$this->project[]     = $_GET['tier_id'];     
 
                 $action_id           = $_GET['action_id'];
                 $action_name         = $this->db_connection->real_escape_string(strip_tags($_POST['action_name'], ENT_QUOTES));
@@ -356,6 +356,8 @@ class Action
                             }
                             
                             $this->messages[] = "Action updated successfuly.";
+                            $this->tierarea[] = $area_id;
+                            $this->project[]  = $_GET['tier_id'];
                         }
                         else 
                         {

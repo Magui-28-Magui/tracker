@@ -37,10 +37,12 @@ if(isset($_GET['area_id']) && $_GET['area_id'] != "")
     $run_area = mysqli_query($connection, $query_area);
     $row_area = mysqli_fetch_array($run_area);
     $tier_area_name = ", " . $row_area['area_name'];
+    $area_id = "&area_id=" . $_GET['area_id'];
 }
 else
 {
     $tier_area_name = "";
+    $area_id = "";
 }
 
 
@@ -190,7 +192,7 @@ else
                             </td>
                             <td>
                                 <a href='index.php?page=tier_view_update&action_id=<?php echo $row['action_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='View action details' style='font-size: 20px; color:#b5b5b5' class='fas fa-eye options'></i></a>
-                                <a href='index.php?page=tier_action_edit&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit action' style='font-size: 20px; color:#b5b5b5' class='fa fa-edit options'></i></a>
+                                <a href='index.php?page=tier_action_edit&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?><?php echo $area_id; ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit action' style='font-size: 20px; color:#b5b5b5' class='fa fa-edit options'></i></a>
                             </td>
                             <td>
                                 <a href='index.php?page=tier_action_add_file&action_id=<?php echo $row['action_id']?>&tier_id=<?php echo $_GET['tier_id'] ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Add a file docx, xlsx, csv, pdf or image' style='font-size: 20px; color:#b5b5b5' class='fas fa-file-upload options'></i></a>

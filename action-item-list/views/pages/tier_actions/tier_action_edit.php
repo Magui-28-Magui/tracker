@@ -16,7 +16,14 @@ if (isset($action)) {
     }
     if ($action->messages) {
         foreach ($action->messages as $message) {
-          $p =   implode($action->project);
+        $p =   implode($action->project);
+        $a =   implode($action->tierarea);
+        if($a != 0){
+        $a = '&area_id='.$a;
+        }
+        else{
+            $a = '';
+        }
           echo "
           <script type='text/javascript'>
             document.addEventListener('DOMContentLoaded', function(event) {
@@ -26,7 +33,7 @@ if (isset($action)) {
                   text: '$message',
                   type: 'success'
               }).then(function() {
-                  window.location = 'index.php?page=tier_view&tier_id=$p';
+                  window.location = 'index.php?page=tier_view&tier_id=$p$a';
               });
             });
          </script>
