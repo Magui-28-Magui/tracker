@@ -131,7 +131,7 @@ $stmt->close();
                             $query3 = "SELECT * FROM action_updates
                             LEFT JOIN actions ON action_updates.a_update_action_id = actions.action_id
                             LEFT JOIN users ON action_updates.a_update_user = users.user_id 
-                            WHERE action_updates.a_update_action_id = {$row['action_id']}";
+                            WHERE action_updates.a_update_action_id = {$row['action_id']} ORDER BY a_update_id DESC";
                             $result3 = mysqli_query($connection, $query3);
                             while($row3 = mysqli_fetch_array($result3)):
                             ?>
