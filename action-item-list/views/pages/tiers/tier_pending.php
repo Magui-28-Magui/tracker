@@ -24,12 +24,7 @@
                 </thead>
                 <tbody>
                     <?php
-                    $query = "SELECT * FROM tier_triggers 
-                    LEFT JOIN tiers ON tiers.tier_id = tier_triggers.trigger_tier_id 
-                    LEFT JOIN key_indicator ON tier_triggers.key_indicator_id = key_indicator.key_id 
-                    LEFT JOIN plants ON tiers.tier_plant = plants.plant_id 
-                    LEFT JOIN tier_area ON tier_area.tier_id = tiers.tier_id 
-                    WHERE trigger_complete = 0 GROUP BY tier_triggers.trigger_id ORDER BY trigger_id DESC";
+                    echo $query = "SELECT * FROM tier_triggers LEFT JOIN tiers ON tiers.tier_id = tier_triggers.trigger_tier_id LEFT JOIN key_indicator ON tier_triggers.key_indicator_id = key_indicator.key_id LEFT JOIN plants ON tiers.tier_plant = plants.plant_id LEFT JOIN tier_area AS tiername ON tiername.tier_id = tiers.tier_id LEFT JOIN tier_area AS areaname ON areaname.area_id = tier_triggers.trigger_area_id WHERE trigger_complete = 0 GROUP BY tier_triggers.trigger_id ORDER BY trigger_id DESC";
                     
 
                     $result = mysqli_query($connection, $query);
