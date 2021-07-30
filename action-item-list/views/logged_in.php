@@ -167,6 +167,10 @@ switch($page)
         include("pages/reports/report_tier.php");
     break;
 
+    case "report_tier_active":
+        include("pages/reports/report_tier_active.php");
+    break;
+
     case "tier_list":
         include("pages/tiers/tier_list.php");
     break;

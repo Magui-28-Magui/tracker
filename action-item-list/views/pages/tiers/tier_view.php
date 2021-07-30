@@ -50,8 +50,13 @@ else
 <h1 class="h3 mb-4 text-gray-800">Tier: <b><?php echo $row_data['tier_name'] ?><?php echo $tier_area_name; ?></b></h1>
 
 <div style="margin-bottom:15px;">
+    
+    <?php if($_SESSION['quatroapp_user_level'] > 0): ?>
     <a  href="index.php?page=tier_action_add&tier_id=<?php echo $_GET['tier_id']; ?><?php if(isset($_GET['area_id']) && $_GET['area_id'] != ""){echo "&area_id={$_GET['area_id']}";}else{echo "";} ?>" id="add-newuser" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-plus fa-sm text-white-50"></i>&nbsp;&nbsp;Add Action</a>
-    <a  href="index.php?page=report_tier&tier_id=<?php echo $_GET['tier_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;&nbsp;Generate Report</a>
+    <?php endif; ?>
+    
+    <a  href="index.php?page=report_tier&tier_id=<?php echo $_GET['tier_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;&nbsp;Report All</a>
+    <a  href="index.php?page=report_tier_active&tier_id=<?php echo $_GET['tier_id']; ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>&nbsp;&nbsp;Report Active</a>
 </div>
 
 <nav aria-label="breadcrumb">
