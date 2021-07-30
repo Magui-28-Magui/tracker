@@ -148,7 +148,7 @@
                             <td style="text-align: center;"><?php echo $row['project_name'];  ?></td>
                             <td style="text-align: justify;"><?php echo $row['project_description'];  ?></td>
                             <td style="text-align: center;"><?php echo $row['department_name'];  ?></td>
-                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['26'];}else{echo $row['46']; }  ?></td>
+                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['26'];}else{echo $row['48']; }  ?></td>
                             <td style="text-align: center;"><?php echo $row['user_name'];  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_start_date']));  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_promise_date']));  ?></td>

@@ -59,7 +59,7 @@
                         AND action_responsible.a_responsible_user = {$_SESSION['quatroapp_user_id']} 
                         AND project_active = 1 
                         AND project_status != 1 
-                        OR (project_owner = {$_SESSION['quatroapp_user_id']} OR project_support = {$_SESSION['quatroapp_user_id']} AND lean = 0 )
+                        OR (project_owner = {$_SESSION['quatroapp_user_id']} OR project_support = {$_SESSION['quatroapp_user_id']} OR project_user_register = {$_SESSION['quatroapp_user_id']} AND lean = 0 )
                         GROUP BY projects.project_id";
                     }
 

@@ -113,6 +113,7 @@ class Project
                 $project_promise_date = $this->db_connection->real_escape_string(strip_tags($_POST['project_promise_date'], ENT_QUOTES));
                 $project_department   = $this->db_connection->real_escape_string(strip_tags($_POST['project_department'], ENT_QUOTES));
                 
+                $register_user = $_SESSION['quatroapp_user_name'];
                     
 
              
@@ -149,11 +150,11 @@ class Project
                 {
                     $sql = "INSERT INTO projects ( lean, project_name, project_description, project_owner, project_start_date, 
                     project_promise_date, project_department, project_support, project_priority, project_type, improvement_oportunity, 
-                    key_indicator_id, expected_improvement, expected_cost_saving, roi )
+                    key_indicator_id, expected_improvement, expected_cost_saving, roi, project_user_register )
                             VALUES('" . $project_lean . "', '" . $project_name . "', '" . $project_description . "', '" . $project_owner . "', 
                             '" . $project_start_date . "', '" . $project_promise_date . "', '" . $project_department . "', 
                             '" . $project_support . "', '" . $project_priority . "', '" . $project_type . "', '" . $improvement_oportunity . "', 
-                            '" . $key_indicator_id . "', '" . $expected_improvement . "', '" . $expected_cost_saving . "', '" . $roi . "');";
+                            '" . $key_indicator_id . "', '" . $expected_improvement . "', '" . $expected_cost_saving . "', '" . $roi . "', '" . $register_user . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
 
                     if ($query_new_user_insert) 
