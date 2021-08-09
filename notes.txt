@@ -1,0 +1,1 @@
+Agregar campo en bd  ail_meeting.meeting_complete default(0)

@@ -794,6 +794,7 @@ class ActionItem
 
             if ($query_new_user_insert) 
             {
+                $this->project[]     = $_GET['meeting_id'];
                 //header("Location: index.php?page=andon_sites");
                 $this->messages[] = "Action deleted successfully.";
             } 
