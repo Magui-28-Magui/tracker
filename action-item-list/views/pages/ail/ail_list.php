@@ -67,9 +67,9 @@
                         LEFT JOIN users ON ail_users.ail_user_id = users.user_id 
                         WHERE 
                         (ail_meeting.meeting_id IN (SELECT ail_meeting_id FROM ail_action) AND ail_users.ail_user_id = {$_SESSION['quatroapp_user_id']} 
-                        AND active = 1) 
+                        AND active = 1 AND meeting_complete = 0) 
                         OR 
-                        (ail_action.ail_owner = {$_SESSION['quatroapp_user_id']} AND active = 1)
+                        (ail_action.ail_owner = {$_SESSION['quatroapp_user_id']} AND active = 1 AND meeting_complete = 0)
                         GROUP BY ail_meeting.meeting_id";
                     }
 
