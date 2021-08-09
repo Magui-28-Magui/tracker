@@ -172,12 +172,12 @@ $stmt->close();
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label>Action Start Date</label>
-                            <input value="<?php echo $row_data['action_start_date'] ?>" type="text" name="action_start_date" id="" class="form-control datepicker" required>
+                            <input value="<?php echo date_format(date_create($row_data['action_start_date']), "m/d/Y");  ?>" type="text" name="action_start_date" id="" class="form-control datepicker" required>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label>Action Promise Date</label>
-                            <input value="<?php echo $row_data['action_promise_date'] ?>" type="text" name="action_promise_date" id="" class="form-control datepicker" required>
+                            <input value="<?php echo date_format(date_create($row_data['action_promise_date']), "d/m/Y");  ?>" type="text" name="action_promise_date" id="" class="form-control datepicker" required>
                         </div>
                     </div>
                                   

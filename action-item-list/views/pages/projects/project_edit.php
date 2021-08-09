@@ -226,12 +226,12 @@ $stmt->close();
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label>Project Start Date</label>
-                            <input type="text" name="project_start_date" id="" class="form-control datepicker" value="<?php echo $row_data['project_start_date'] ?>" required>
+                            <input type="text" name="project_start_date" id="" class="form-control datepicker" value="<?php echo date_format(date_create($row_data['project_start_date']), "m/d/Y");  ?>" required>
                         </div>
 
                         <div class="form-group col-lg-6">
                             <label>Project Promise Date</label>
-                            <input type="text" name="project_promise_date" id="" class="form-control datepicker" value="<?php echo $row_data['project_promise_date'] ?>" required>
+                            <input type="text" name="project_promise_date" id="" class="form-control datepicker" value="<?php echo date_format(date_create($row_data['project_promise_date']), "m/d/Y"); ?>" required>
                         </div>
                     </div>
 
