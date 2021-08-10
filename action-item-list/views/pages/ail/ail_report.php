@@ -99,6 +99,7 @@ if(isset($_GET['meeting_id']))
                                     <th>Responsible</th>
                                     <th>ECD</th>
                                     <th>Updates</th>
+                                    <th>Status</th>
                                 </thead>
                                 <tbody>
                                 <?php 
@@ -141,6 +142,10 @@ if(isset($_GET['meeting_id']))
                                                     <?php echo $row_updates['user_name'] ?><br>
 
                                                 <?php endwhile; ?>
+                                            </td>
+
+                                            <td>
+                                                <?php if($row['action_complete'] == 0){echo "In Process";}else{echo "Completed";} ?>
                                             </td>
                                         </tr>
                                 <?php 

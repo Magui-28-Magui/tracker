@@ -137,6 +137,7 @@ if(isset($_GET['meeting_id']))
                                     <th>Responsible</th>
                                     <th>ECD</th>
                                     <th>Actions</th>
+                                    <th>Status</th>
                                     <th>Updates</th>
                                 </thead>
                                 <tbody>
@@ -171,6 +172,11 @@ if(isset($_GET['meeting_id']))
                                                     Update
                                                 </button>
                                             </td>
+
+                                            <td>
+                                                <?php if($row['action_complete'] == 0){echo "In Process";}else{echo "Completed";} ?>
+                                            </td>
+
                                             <td>
                                                 <?php 
                                                 $query_updates = "SELECT * FROM ail_updates 
@@ -232,8 +238,38 @@ if(isset($_GET['meeting_id']))
         
             <input id="action_id" type="hidden" name="action_id" value="">
             <div class="form-group">
+                <label>Update</label>
                 <textarea name="update_text" class="form-control" rows="8"></textarea>
             </div>
+
+            <div class="form-group">
+                <label>Completed Status</label>
+                <select name="action_complete" class="form-control" required>
+                    <option value="">Select</option>
+                    <option value="0">Not Completed</option>
+                    <option value="1">Completed</option>
+                </select>
+            </div>
+
+
+
+            <!--
+            <div class="form-group col-lg-12">
+                          <label>Completion percentage</label>
+                          <input
+                            type="text"
+                            name="progress"
+                            data-provide="slider"
+                            data-slider-ticks="[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]"
+                            data-slider-ticks-labels='["0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100%"]'
+                            data-slider-min="0"
+                            data-slider-max="100"
+                            data-slider-step="10"
+                            data-slider-value="10<?php // echo $row['action_percent'];?>"
+                            data-slider-tooltip="hide"
+                        >
+            </div>
+            -->
             <!--
             <div class="form-group">
                 <button type="submit" name="submit_update" class="btn btn-primary">Save</button>

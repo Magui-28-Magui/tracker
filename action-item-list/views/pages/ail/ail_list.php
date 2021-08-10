@@ -34,7 +34,7 @@
                     {
                         $query = "SELECT * FROM ail_meeting 
                         LEFT JOIN departments ON ail_meeting.meeting_department = departments.department_id  
-                        WHERE ail_meeting.active = 1";
+                        WHERE ail_meeting.active = 1 AND ail_meeting.meeting_complete = 0";
                     }
                     else
                     {
@@ -115,7 +115,7 @@
                             </td>
                             
                             <td style="text-align: center;">
-                                <a href='index.php?page=ail_complete&project_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Mark as completed' style='font-size: 20px; color:#b5b5b5' class='fas fa-check options2'></i></a>
+                                <a href='index.php?page=ail_complete&meeting_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Mark as completed' style='font-size: 20px; color:#b5b5b5' class='fas fa-check options2'></i></a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

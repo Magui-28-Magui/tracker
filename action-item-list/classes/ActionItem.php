@@ -48,6 +48,10 @@ class ActionItem
         else if (isset($_POST["submit_update"])) {
             $this->updateAction();
         }
+
+        else if (isset($_POST["complete_meeting"])) {
+            $this->completeMeeting();
+        }
     }
 
    
@@ -452,6 +456,7 @@ class ActionItem
                 $meeting_id              = $_GET['meeting_id'];
                 $update_text             = $this->db_connection->real_escape_string(strip_tags($_POST['update_text'], ENT_QUOTES));
                 $action_id               = $this->db_connection->real_escape_string(strip_tags($_POST['action_id'], ENT_QUOTES));
+                $action_complete         = $this->db_connection->real_escape_string(strip_tags($_POST['action_complete'], ENT_QUOTES));
                 $user                    = $_SESSION['quatroapp_user_id'];
                 $today                   = date("Y-m-d");
 
@@ -464,6 +469,13 @@ class ActionItem
 
                 if($query_new_update) 
                 {
+
+                    if($action_complete == 1)
+                    {
+                        $sql2 = "UPDATE ail_action SET action_complete = 1 WHERE ail_action_id = $action_id";
+                        $query_complete = $this->db_connection->query($sql2);
+                    }
+
                     $this->project[]     = $meeting_id;
                     $this->messages[] = "Action update saved successfuly."; 
                 }
@@ -809,5 +821,70 @@ class ActionItem
             $this->errors[] = "Sorry, no database connection.";
         } 
     }
+
+
+
+
+
+
+
+
+
+
+
+    private function completeMeeting()
+    {
+        $meeting_id = $_GET['meeting_id'];
+        $total      = $_POST['total'];
+        $completed  = $_POST['completed'];
+
+        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+        if (!$this->db_connection->set_charset("utf8")) 
+        {
+            $this->errors[] = $this->db_connection->error;
+        }
+
+        if (!$this->db_connection->connect_errno) 
+        {
+            
+            if($total == $completed)
+            {
+
+                $sql = "UPDATE ail_meeting SET meeting_complete = 1 WHERE meeting_id = $meeting_id;";
+                $query_new_user_insert = $this->db_connection->query($sql);
+
+                if ($query_new_user_insert) 
+                {
+                    $this->project[]     = $_GET['meeting_id'];
+                    //header("Location: index.php?page=andon_sites");
+                    $this->messages[] = "Meeting completed successfully, data is available in reports.";
+                } 
+                else 
+                {
+                    $this->errors[] = "Sorry, could not delete. Please go back and try again.";
+                }
+
+            }else
+            {
+                $this->errors[] = "Sorry, all actions must be completed first. Complete them and try again.";
+            }
+            
+            
+            
+        } 
+        else 
+        {
+            $this->errors[] = "Sorry, no database connection.";
+        } 
+    }
+
+
+
+
+
+
+
+
 }
 

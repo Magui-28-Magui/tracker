@@ -30,6 +30,10 @@ switch($page)
         include("pages/meeting_ail/meeting_ail_delete.php");
     break;
 
+    case "meeting_ail_complete":
+        include("pages/meeting_ail/meeting_ail_complete.php");
+    break;
+
 
     //users
     case "user_profile":
@@ -89,6 +93,10 @@ switch($page)
 
     case "ail_report":
         include("pages/ail/ail_report.php");
+    break;
+
+    case "ail_complete":
+        include("pages/ail/ail_complete.php");
     break;
 
 
@@ -170,6 +178,7 @@ switch($page)
     case "report_tier_active":
         include("pages/reports/report_tier_active.php");
     break;
+
 
     case "tier_list":
         include("pages/tiers/tier_list.php");
