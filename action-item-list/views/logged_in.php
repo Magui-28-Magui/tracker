@@ -175,6 +175,8 @@ switch($page)
         include("pages/reports/report_tier.php");
     break;
 
+
+
     case "report_tier_active":
         include("pages/reports/report_tier_active.php");
     break;
@@ -213,6 +215,12 @@ switch($page)
     case "tier_action_edit":
         include("pages/tier_actions/tier_action_edit.php");
     break;
+
+
+    case "edit_action_update":
+        include("pages/tier_action_updates/edit_action_update.php");
+    break;
+
 
 
     //import data

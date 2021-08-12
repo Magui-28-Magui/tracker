@@ -151,7 +151,7 @@ $stmt->close();
                             <td><?php echo $row['a_update_date'];  ?></td>
                             
                             <td>
-                                <a href='index.php?page=view_update&update_id=<?php echo $row['a_update_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit Update' style='font-size: 20px; color:#b5b5b5' class='fas fa-edit options'></i></a>
+                                <a href='index.php?page=edit_action_update&update_id=<?php echo $row['a_update_id']; ?>&action_id=<?php echo $_GET['action_id']; ?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit Update' style='font-size: 20px; color:#b5b5b5' class='fas fa-edit options'></i></a>
                             </td>
                             
                         </tr>
