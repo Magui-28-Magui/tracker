@@ -36,7 +36,7 @@
                             <td style="text-align: center;"><b><?php if($row['key_name'] == ""){echo "N/A";}else{echo $row['key_name'];}  ?></b></td>
 
                             <td>
-                                <a href='index.php?page=tier_view&tier_id=<?php echo $row[0]?><?php if($row['area_id'] != ""){echo "&area_id={$row['area_id']}";}else{echo "";} ?>'  class='' ><i data-toggle='tooltip' data-placement='left' title='Accept' style='font-size: 20px; color:#b5b5b5' class='far fa-eye options'></i></a>
+                                <a href='index.php?page=tier_view&tier_id=<?php echo $row['tier_trigger_id']?><?php if($row['trigger_area_id'] != ""){echo "&area_id={$row['trigger_area_id']}";}else{echo "";} ?>'  class='' ><i data-toggle='tooltip' data-placement='left' title='Accept' style='font-size: 20px; color:#b5b5b5' class='far fa-eye options'></i></a>
                             </td>
 
                         </tr>
