@@ -47,6 +47,15 @@ if($result->num_rows === 0)
 $row = $result->fetch_array();
 $stmt->close();
 
+
+
+if(isset($_GET['from']) && $_GET['from'] == "pending")
+{
+    $query = "SELECT * FROM tier_triggers WHERE trigger_id = {$_GET['trigger_id']}";
+    $run = mysqli_query($connection, $query);
+    $row_data = mysqli_fetch_array($run);
+}
+
 ?>
 
 <h1 class="h3 mb-4 text-gray-800">Add An Action to Tier <b><?php echo " ".$row['tier_name']; ?></b></h1>
@@ -90,7 +99,7 @@ $stmt->close();
                     
                     <div class="form-group">
                         <label>Issue</label>
-                        <input type="text" name="action_name"  class="form-control" value="<?php if(isset($_POST['action_name'])){echo $_POST['action_name'];} ?>" required>
+                        <input type="text" name="action_name"  class="form-control" value="<?php  if(isset($_GET['from']) && $_GET['from'] == "pending"){echo $row_data['trigger_issue'];}else{if(isset($_POST['action_name'])){echo $_POST['action_name'];}} ?>" required>
                     </div>
 
                     <div class="form-group ">

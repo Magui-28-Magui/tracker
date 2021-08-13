@@ -35,6 +35,9 @@ if (isset($actionUpdate)) {
   }
 }
 
+
+
+
 $stmt = $connection->prepare("SELECT * FROM tier_actions WHERE action_id = ?");
 $stmt->bind_param("i", $_GET['action_id']);
 $stmt->execute();
@@ -45,6 +48,7 @@ if($result->num_rows === 0)
 
 $row = $result->fetch_array();
 $stmt->close();
+
 
 ?>
 
