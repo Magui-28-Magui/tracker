@@ -27,6 +27,7 @@
                     <th class="text-center" style="font-size: 10px; vertical-align:middle;min-width: 100px; ">Project Name</th>
                     <th class="text-center" style="min-width: 300px !important; font-size: 10px; vertical-align:middle;">Project Description</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px;">Department</th>
+                    <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px;">Staff</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px;">Owner</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px;">Support</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px; ">Start</th>
@@ -44,6 +45,7 @@
                         $query = "SELECT * FROM projects 
                         LEFT JOIN departments ON projects.project_department = departments.department_id 
                         LEFT JOIN users as owner ON projects.project_owner = owner.user_id 
+                        LEFT JOIN users as staff ON projects.staff = staff.user_id 
                         LEFT JOIN users as support ON projects.project_support = support.user_id 
                         WHERE project_active = 1 AND  project_status != 1 AND lean = 1";
                     }
@@ -148,7 +150,21 @@
                             <td style="text-align: center;"><?php echo $row['project_name'];  ?></td>
                             <td style="text-align: justify;"><?php echo $row['project_description'];  ?></td>
                             <td style="text-align: center;"><?php echo $row['department_name'];  ?></td>
-                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['26'];}else{echo $row['45']; }  ?></td>
+                            <!--leader-->
+                            <td style="text-align: center;">
+                            <?php
+                            if($row['staff'] != 0)
+                            {
+                                $query_leader = "SELECT * FROM users WHERE user_id = {$row['staff']}; ";
+                                $run_leader_query = mysqli_query($connection, $query_leader);
+                                $row_leader = mysqli_fetch_array($run_leader_query);
+                                echo  $row_leader['user_name'] . "<br>";
+                                echo $row_leader['user_first_name'] . " " . $row_leader['user_last_name'];
+  
+                            }
+                            ?>
+                            </td>
+                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['28'];}else{echo $row['45']; }  ?></td>
                             <td style="text-align: center;"><?php echo $row['user_name'];  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_start_date']));  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_promise_date']));  ?></td>
