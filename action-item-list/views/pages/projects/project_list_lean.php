@@ -51,7 +51,7 @@
                     }
                     else
                     {
-                        echo $query = "SELECT * FROM `projects` 
+                        $query = "SELECT * FROM `projects` 
                         LEFT JOIN departments ON projects.project_department = departments.department_id  
                         LEFT JOIN actions ON projects.project_id = actions.action_project_id 
                         LEFT JOIN action_responsible ON actions.action_id = action_responsible.a_action_id
