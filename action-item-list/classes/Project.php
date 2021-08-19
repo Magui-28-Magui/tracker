@@ -59,6 +59,10 @@ class Project
         {
             $this->errors[] = "Project must have an owner, please select one to continue.";
         }
+        elseif (empty($_POST['staff'])) 
+        {
+            $this->errors[] = "Project must have a staff leader, please select one to continue.";
+        }
         elseif (empty($_POST['project_department'])) 
         {
             $this->errors[] = "Project must have a responsible department, please select one to continue.";
@@ -89,6 +93,7 @@ class Project
             && !empty($_POST['project_description'])
             && !empty($_POST['project_lean'])
             && !empty($_POST['project_owner'])
+            && !empty($_POST['staff'])
             && !empty($_POST['project_start_date'])
             && !empty($_POST['project_promise_date'])
             && !empty($_POST['project_department'])
@@ -112,7 +117,8 @@ class Project
                 $project_start_date   = $this->db_connection->real_escape_string(strip_tags($_POST['project_start_date'], ENT_QUOTES));
                 $project_promise_date = $this->db_connection->real_escape_string(strip_tags($_POST['project_promise_date'], ENT_QUOTES));
                 $project_department   = $this->db_connection->real_escape_string(strip_tags($_POST['project_department'], ENT_QUOTES));
-                
+                $staff                = $this->db_connection->real_escape_string(strip_tags($_POST['staff'], ENT_QUOTES));
+
                 $register_user = $_SESSION['quatroapp_user_name'];
                     
 
@@ -150,11 +156,11 @@ class Project
                 {
                     $sql = "INSERT INTO projects ( lean, project_name, project_description, project_owner, project_start_date, 
                     project_promise_date, project_department, project_support, project_priority, project_type, improvement_oportunity, 
-                    key_indicator_id, expected_improvement, expected_cost_saving, roi, project_user_register )
+                    key_indicator_id, expected_improvement, expected_cost_saving, roi, project_user_register, staff )
                             VALUES('" . $project_lean . "', '" . $project_name . "', '" . $project_description . "', '" . $project_owner . "', 
                             '" . $project_start_date . "', '" . $project_promise_date . "', '" . $project_department . "', 
                             '" . $project_support . "', '" . $project_priority . "', '" . $project_type . "', '" . $improvement_oportunity . "', 
-                            '" . $key_indicator_id . "', '" . $expected_improvement . "', '" . $expected_cost_saving . "', '" . $roi . "', '" . $register_user . "');";
+                            '" . $key_indicator_id . "', '" . $expected_improvement . "', '" . $expected_cost_saving . "', '" . $roi . "', '" . $register_user . "', '" . $staff . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
 
                     if ($query_new_user_insert) 
@@ -220,6 +226,10 @@ class Project
         {
             $this->errors[] = "Project must have an owner, please select one to continue.";
         }
+        elseif (empty($_POST['staff'])) 
+        {
+            $this->errors[] = "Project must have a staff leader, please select one to continue.";
+        }
         elseif (empty($_POST['project_department'])) 
         {
             $this->errors[] = "Project must have a responsible department, please select one to continue.";
@@ -250,6 +260,7 @@ class Project
             && !empty($_POST['project_lean'])
             && !empty($_POST['project_description'])
             && !empty($_POST['project_owner'])
+            && !empty($_POST['staff'])
             && !empty($_POST['project_start_date'])
             && !empty($_POST['project_promise_date'])
             && !empty($_POST['project_department'])
@@ -275,7 +286,8 @@ class Project
                 $project_start_date   = $this->db_connection->real_escape_string(strip_tags($_POST['project_start_date'], ENT_QUOTES));
                 $project_promise_date = $this->db_connection->real_escape_string(strip_tags($_POST['project_promise_date'], ENT_QUOTES));
                 $project_department   = $this->db_connection->real_escape_string(strip_tags($_POST['project_department'], ENT_QUOTES));
-                
+                $staff                = $this->db_connection->real_escape_string(strip_tags($_POST['staff'], ENT_QUOTES));
+
              
                 $project_start_date =  strtotime($project_start_date);
                 $project_start_date = date('Y-m-d', $project_start_date);
@@ -312,7 +324,7 @@ class Project
                     project_promise_date = '" . $project_promise_date . "', project_department = '" . $project_department . "', 
                     project_support = '" . $project_support . "', project_priority = '".$project_priority."', project_type = '".$project_type."', 
                     improvement_oportunity = '".$improvement_oportunity."', key_indicator_id = '".$key_indicator_id."', expected_improvement = '".$expected_improvement."', 
-                    expected_cost_saving = '".$expected_cost_saving."', roi = '".$roi."', lean = '".$project_lean."'  
+                    expected_cost_saving = '".$expected_cost_saving."', roi = '".$roi."', lean = '".$project_lean."', staff = '".$staff."'  
                     WHERE project_id = $project_id";
                     $query_new_user_insert = $this->db_connection->query($sql);
 

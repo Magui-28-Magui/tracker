@@ -196,6 +196,23 @@ $stmt->close();
                         <textarea name="project_description" id="" class="form-control" rows="7" required><?php echo $row_data['project_description'] ?></textarea>
                     </div>
 
+
+                    <div class="form-group">
+                            <label for="id_label_single">Staff Leader</label>
+                            <select style="width: 100%;" class=" js-example-basic-single form-control" id="id_label_single3" name="staff" required>
+                                <?php 
+                                $query = "SELECT * FROM users WHERE user_active = 1";
+                                $result = mysqli_query($connection, $query);
+                                while($row = mysqli_fetch_array($result)):
+                                ?>
+                                    <option <?php if($row_data['staff'] == $row['user_id']){echo "selected";}else{echo "";} ?> value="<?php echo $row['user_id']; ?>"><?php echo $row['user_name']; ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+
+
+
+
                     <div class="form-group">
                         <label for="id_label_single">Project Owner</label>
                         <select style="width: 100%;" class=" js-example-basic-single form-control" id="id_label_single" name="project_owner" required>
