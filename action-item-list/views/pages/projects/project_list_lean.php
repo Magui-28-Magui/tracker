@@ -51,7 +51,7 @@
                     }
                     else
                     {
-                        $query = "SELECT * FROM `projects` 
+                        echo $query = "SELECT * FROM `projects` 
                         LEFT JOIN departments ON projects.project_department = departments.department_id  
                         LEFT JOIN actions ON projects.project_id = actions.action_project_id 
                         LEFT JOIN action_responsible ON actions.action_id = action_responsible.a_action_id
@@ -164,7 +164,7 @@
                             }
                             ?>
                             </td>
-                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['28'];}else{echo $row['45']; }  ?></td>
+                            <td style="text-align: center;"><?php if($_SESSION['quatroapp_user_level']>= 1){echo $row['28'];}else{echo $row['46']; }  ?></td>
                             <td style="text-align: center;"><?php echo $row['user_name'];  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_start_date']));  ?></td>
                             <td style="text-align: center;"><?php echo date('m-d-Y', strtotime($row['project_promise_date']));  ?></td>
