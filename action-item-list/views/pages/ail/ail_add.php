@@ -12,7 +12,8 @@ if (isset($actionitem)) {
             swal('Error!','$error','error');
           });
        </script>
-       ";        }
+       ";
+      }
   }
   if ($actionitem->messages) {
       foreach ($actionitem->messages as $message) {
@@ -269,7 +270,7 @@ if(isset($_GET['meeting_id']))
                     
                     <div style="margin-top: 50px;" class="form-group right">
                         <a style="float: right;" href="index.php?page=ail_list"  class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm ">
-                            <i class="far fa-save fa-lg text-white-50"></i>&nbsp;&nbsp;Save And Finish
+                            <i class="fa fa-check fa-lg text-white-50"></i>&nbsp;&nbsp;Finish
                         </a>
                     </div>
                 </div><!--col-8-end--> 
