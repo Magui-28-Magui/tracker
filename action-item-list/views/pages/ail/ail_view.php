@@ -174,7 +174,7 @@ if(isset($_GET['meeting_id']))
                                             </td>
 
                                             <td>
-                                                <?php if($row['action_complete'] == 0){echo "In Process";}else{echo "Completed";} ?>
+                                                <?php if($row['action_complete'] == 0){echo "In Process";}else{echo "<b style='color: #6aff00'>Completed</b>";} ?>
                                             </td>
 
                                             <td>
