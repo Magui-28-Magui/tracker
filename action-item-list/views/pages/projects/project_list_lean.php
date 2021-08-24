@@ -33,6 +33,7 @@
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px; ">Start</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px; ">Promise Date</th>
                     <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:50px;">Status</th>
+                    <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:50px;">Last Update</th>
                     <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:100px;">Options</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; ">Complete</th>
                 </tr>
@@ -235,6 +236,30 @@
                                     {
                                         echo "N/A";
                                     }  
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $last_update = "SELECT * FROM action_updates LEFT JOIN actions ON action_updates.a_update_action_id = actions.action_id 
+                                WHERE actions.action_project_id = {$row['project_id']} ORDER BY action_updates.a_update_id DESC LIMIT 1";
+                                $last_update_result = mysqli_query($connection, $last_update);
+                                if($last_update_result)
+                                {
+                                    $row_last_update = mysqli_fetch_array($last_update_result);
+                                    if($row_last_update['a_update_descr'] != "")
+                                    {
+                                        echo $row_last_update['a_update_descr'];
+                                    }
+                                    else
+                                    {
+                                        echo "No updates have been made.";    
+                                    }
+
+                                }
+                                else{
+                                    echo "N/A";
+                                }
+                                
                                 ?>
                             </td>
                             <td>
