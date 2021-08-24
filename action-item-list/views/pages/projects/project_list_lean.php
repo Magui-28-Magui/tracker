@@ -33,7 +33,7 @@
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px; ">Start</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; min-width:50px; ">Promise Date</th>
                     <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:50px;">Status</th>
-                    <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:50px;">Last Update</th>
+                    <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:300px;">Last Update</th>
                     <th class="text-center" style="width: 100px; font-size: 10px; vertical-align:middle; min-width:100px;">Options</th>
                     <th class="text-center" style="font-size: 10px; vertical-align:middle; ">Complete</th>
                 </tr>
