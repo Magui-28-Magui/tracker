@@ -57,7 +57,7 @@
   <script src="ajax/charts/piechart-actions-tier.js"></script>
   <script src="ajax/charts/piechart-projects.js"></script>
   <script src="ajax/charts/piechart-tier.js"></script>
-
+  <script src="ajax/charts/piechart-meetings.js"></script>
   <script src="ajax/alerts/alertnum.js"></script>
   <script src="ajax/alerts/alerttext.js"></script>
 
