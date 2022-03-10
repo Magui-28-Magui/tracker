@@ -107,7 +107,7 @@
                                 
                                 <a href='index.php?page=ail_add&meeting_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Edit Meeting' style='font-size: 20px; color:#b5b5b5' class='far fa-edit options'></i></a>
 
-                                <a href='index.php?page=ail_delete&project_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Delete Meeting' style='font-size: 20px; color:#b5b5b5' class='far fa-trash-alt options'></i></a>
+                                <a href='index.php?page=meeting_ail_delete&meeting_id=<?php echo $row['meeting_id']?>'  class=''  data-cat-name='{$row['user_name']}' data-cat-id='{$row['user_id']}'><i data-toggle='tooltip' data-placement='left' title='Delete Meeting' style='font-size: 20px; color:#b5b5b5' class='far fa-trash-alt options'></i></a>
                                 
                                 <?php 
                                 endif;

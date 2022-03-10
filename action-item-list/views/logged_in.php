@@ -27,7 +27,7 @@ switch($page)
     break;
 
     case "meeting_ail_delete":
-        include("pages/meeting_ail/meeting_ail_delete.php");
+        include("functions/ail/delete_meeting.php");
     break;
 
     case "meeting_ail_complete":
